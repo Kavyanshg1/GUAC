@@ -1,4 +1,11 @@
- * Serving Flask app 'app'
- * Debug mode: on
-Address already in use
-Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+import logging
+
+# Set up logging
+logging.basicConfig(filename='output.log', level=logging.INFO, format='%(message)s')
+
+def log_output(output):
+    logging.info(output)
+
+# Example usage
+log_output("Hello, World!")
+log_output("The answer is: 42")

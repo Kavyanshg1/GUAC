@@ -9,4 +9,4 @@ def log_server_event(event, level=logging.INFO):
 # Example usage
 log_server_event("User logged in successfully", level=logging.INFO)
 log_server_event("Error: Unable to translate Python code to Z-Lang", level=logging.ERROR)
-log_server_event("User completed tutorial 3", level=logging.INFO)
+log_server_event("User completed tutorial 3", level=logging.INFO)sudo netstat -a | grep :8080
