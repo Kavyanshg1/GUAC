@@ -3,12 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Z-Code IDE</title>
+</head>
+<body>
+    <header>
+        <h1>Z-lang</h1>
+        <h4>Powered by genzify</h4>
+     
+        <nav>
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Start Coding in Z-Lang!</h2>
+        <p>Use the coding space below to write and run your Z-Lang code.</p>
+        <textarea class="code-editor" id="code" rows="10" cols="50"></textarea>
+        <button class="run-button" onclick="runCode()">Run Code</button>
+        <pre class="output" id="output"></pre>
+    </main>
+    <script>
+        function runCode() {
+            const code = document.getElementById('code').value;
+            // Send the code to the server for interpretation
+            fetch('/execute', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 'code': code })
+            })
+           .then(response => response.json())
+           .then(data => {
+                document.getElementById('output').innerText = data.output;
+            })
+           .catch(error => {
+                console.error('Error executing code:', error);
+                document.getElementById('output').innerText = 'Error executing code. ';
+            });
+        }
+    </script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Z-Code IDE</title>
+</head>
+<body>
+    <header>
+        <h1>Z-lang</h1>
+        <h2>Powered by Genzify</h2>
+        <h3>For GenZ, From GenZ, By GenZ</h3>
+        <nav>
+            {% if 'username' in session %}
+                <p>Welcome, {{ session['username'] }}!</p>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('signup') }}">Sign Up</a>
+            {% endif %}
+        </nav>
+    </header>
+    <main>
+        <h2>Start Coding in Z-Lang!</h2>
+        <p>Use the coding space below to write and run your Z-Lang code.</p>
+        <textarea id="code" rows="10" cols="50"></textarea>
+        <button onclick="runCode()">Run Code</button>
+        <pre id="output"></pre>
+    </main>
+    <script>
+        function runCode() {
+            const code = document.getElementById('code').value;
+            // Send the code to the server for interpretation
+            fetch('/execute', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 'code': code })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('output').innerText = data.output;
+            })
+            .catch(error => {
+                console.error('Error executing code:', error);
+                document.getElementById('output').innerText = 'Error executing code. ';
+            });
+        }
+    </script>
+</body>
+</html>
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Z-Code IDE</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <header>
-        <h1>Welcome to Z-Code IDE</h1>
+        <h1> Z-lang </h1>
+        <h2> Powered by Genzify </h2>
+        <h3> For GenZ , From GenZ , By GenZ</h3>
         <nav>
             {% if 'username' in session %}
                 <p>Welcome, {{ session['username'] }}!</p>
@@ -49,4 +154,4 @@
     </script>
 </body>
 </html>
-
+-->
