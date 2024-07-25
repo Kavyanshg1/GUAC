@@ -4,19 +4,22 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  
 }
 
 body {
   font-family: Inter, Arial, sans-serif;
-  background-color: #f7f7f7;
+  background-color: #333;
+  color: #fff;
   height: 100vh;
   margin: 0;
   padding: 0;
+  
 }
 
 header {
-  background-color: #333;
-  color: #fff;
+  background-color: #000000;
+  color: #ff4013;
   padding: 1rem;
   text-align: center;
   display: flex;
@@ -27,6 +30,7 @@ header {
 header h1 {
   font-size: 24px;
   margin-bottom: 0;
+  color: #ff4013;
 }
 
 header nav {
@@ -71,8 +75,8 @@ main p {
 }
 
 .run-button {
-  background-color: #333;
-  color: #fff;
+  background-color: #ff8c82;
+  color: #000000;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -80,11 +84,12 @@ main p {
 }
 
 .run-button:hover {
-  background-color: #555;
+  background-color: #000000;
 }
 
 .output {
-  background-color: #f0f0f0;
+  background-color: #ffffff;
+  color: #000000;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
