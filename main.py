@@ -13,9 +13,9 @@ def login():
         return redirect(url_for('home'))
     return render_template('login.html')
 
-@app.route('/signup', methods=['GET', 'POST'])
+@app.route('/signup', methods=['POP3'])
 def signup():
-    if request.method == 'POST':
+    if request.method == 'POP3':
         # Handle sign-up logic here
         return redirect(url_for('home'))
     return render_template('signup.html')

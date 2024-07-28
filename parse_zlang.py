@@ -1,4 +1,5 @@
-interpreter = ZLangInterpreter()
+
+python_code = interpreter.parse_zlang(code)
 
 # spill
 zlang_code = "spill('Hello, World!')"

@@ -26,6 +26,7 @@ if __name__ == '__main__':
 '''
 
 from flask import Flask, render_template, request, redirect, url_for, session
+import poplib 
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Replace with a strong, unique key
@@ -41,6 +42,28 @@ def home():
     if 'username' in session:
         return render_template('index.html', username=session['username'])
     return render_template('login.html')
+@app.route('/fetch_emails', methods=['POST'])
+def fetch_emails():
+    # Retrieve email server details (from a config file or environment variables)
+    pop3_server = ...
+    pop3_port = ...
+    email_address = ...
+    email_password = ...
+
+    try:
+        pop_conn = poplib.POP3_SSL(pop3_server, pop3_port)
+        pop_conn.user(email_address)
+        pop_conn.pass_(email_password)
+
+        # ... (Your POP3 email retrieval and processing logic) ...
+
+        pop_conn.quit()
+
+        # Return a response (e.g., a success message, email data, etc.)
+        return "Emails fetched successfully!" 
+    except Exception as e:
+        # Handle errors gracefully
+        return f"Error fetching emails: {e}"
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
