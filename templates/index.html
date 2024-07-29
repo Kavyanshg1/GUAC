@@ -4,21 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    <title>Z-Code IDE</title>
+    <title>GenZify Studios</title>
 </head>
 <body>
     <header>
-        <h1>Z-lang</h1>
-        <h4>Powered by genzify</h4>
-     
+        <h1>GenZify Studios</h1>
         <nav>
-            <a href="#">Login</a>
-            <a href="#">Sign Up</a>
+            <a href="templates/login.html">Login</a>
+            <a href="templates/signup.html">Sign Up</a>
         </nav>
     </header>
     <main>
-        <h2>Start Coding in Z-Lang!</h2>
-        <p>Use the coding space below to write and run your Z-Lang code.</p>
+        <h2>Start Coding in Zyntax Lang!</h2>
+        <p>Use the coding space below to write and run your Zyntax lang code.</p>
         <textarea class="code-editor" id="code" rows="10" cols="50"></textarea>
         <button class="run-button" onclick="runCode()">Run Code</button>
         <pre class="output" id="output"></pre>
